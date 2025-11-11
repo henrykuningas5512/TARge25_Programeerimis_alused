@@ -3,9 +3,9 @@
 
 def sum_and_difference(num_a: int, num_b: int) -> tuple:
     """Return the sum and difference of given variables num_a and num_b."""
-    sum = num_a + num_b
+    addition_result = num_a + num_b
     difference = num_b - num_a
-    return sum, difference
+    return addition_result, difference
 
 
 def float_division(num_a: int, num_b: int) -> float:
@@ -62,4 +62,4 @@ def calculate_cathetus_length(a: int, c: int) -> float:
     return b
 
 if __name__ == '__main__':
-    sum_and_difference(5, 6)
+    addition_result, difference = sum_and_difference(5, 6)
