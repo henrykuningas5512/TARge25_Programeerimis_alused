@@ -84,7 +84,7 @@ Sisestage teine arv: 3
 Sisestage tehe: +
 Tulemus: auh auh auh auh auh"""
 
-def dog_calculate(num1: float, num2: float, operation: str) -> str:
+"""def dog_calculate(num1: float, num2: float, operation: str) -> str:
     if operation == "+":
         result = num1 + num2
     elif operation == "-":
@@ -109,15 +109,68 @@ if __name__ == '__main__':
     first = float(input("Sisestage esimene arv: "))
     second = float(input("Sisestage teine arv: "))
     op =input("Sisestage tehe: ")
-    print(f"Tulemus: {dog_calculate(first, second, op)})")
+    print(f"Tulemus: {dog_calculate(first, second, op)})")"""
 
 
 """Ülesanne 5
 Koosta programm, mis küsib kasutajalt temperatuuri Celsiuse kraadides ja väljastab tulemuse Fahrenheiti kraadides. Kuidas muuta programmi nii, et võimalik oleks teisendamine nii üht- kui teistpidi? Proovi."""
 
+"""def convert_to_fahrenheit(celsius_temperature: float) -> float:
+    #convert given cel to f
+    return celsius_temperature * 1.8 + 32
+
+def convert_to_celsius(fahrenheit_temperature: float) -> float:
+    #convert given f to cel
+    return (fahrenheit_temperature - 32) / 1.8
+
+if __name__ == '__main__':
+    unit = input("Määra sisestava temperatuuri ühik (C/F): ")
+    if unit.upper() == "C":
+        temperature_celsius = float(input("Sisesta temperatuur Celsius kraadides: "))
+        temperature_fahrenheit = convert_to_fahrenheit(temperature_celsius)
+        print(f"{temperature_celsius}C on {temperature_fahrenheit: .2f}F kraadi")
+    elif unit.upper() == "F":
+        temperature_fahrenheit = float(input("Sisesta temperatuur Celsius kraadides: "))
+        temperature_celsius = convert_to_fahrenheit(temperature_fahrenheit)
+        print(f"{temperature_celsius}C on {temperature_fahrenheit: .2f}F kraadi")
+    else:
+        print(f"Sisestasid tundmatu temperatuuri ühiku - {unit}")
+        print("Program toetab C - Celsius ja F - kraade")"""
+
 
 """Ülesanne 6
 Loo programm, mis küsib kasutajalt ruutvõrrandi liikmete (ruutliige, lineaarliige, vabaliige) kordajad ning arvutab nende põhjal diskriminandi ja väljastab selle põhjal ruutvõrrandi lahendid. Nagu tead, võib lahendeid vastavalt diskriminandi väärtusele olla üks või kaks, kuid lahendid võivad ka puududa."""
+
+"""def calculete_discriminant(a: float, b: float, c: float) -> float:
+    return b ** 2 - 4 * a * c
+
+def solve_quadric_equasion(a, b, discriminant, useAddition):
+    if useAddition:
+        top = -b + math.sqrt(discriminant)
+    else:
+        top = -b - math.sqrt(discriminant)
+    bottom = 2 * a
+    return top/bottom
+
+if __name__ == '__main__':
+    print("Arvutame ruutvõrrandit!")
+    a= float(input("sisesta ruutliige: "))
+    if a == 0:
+        print("Ruutliige ei tohi olla null.")
+    else:
+        b= float(input("sisesta lineaarliiga: "))
+        c= float(input("sisesta vabaliige: "))
+        discriminant = calculete_discriminant(a, b, c)
+        if discriminant < 0:
+            print("lahendid puuduvad")
+        elif discriminant == 0:
+            solution = solve_quadric_equasion(a, b, discriminant, True)
+            print(f"lahendid on võrdsed: {solution}")
+        else:
+            solution1 = solve_quadric_equasion(a, b, discriminant, True)
+            solution2 = solve_quadric_equasion(a, b, discriminant, False)
+            print(f"lahendid on kaks: {solution1} ja {solution2}")"""
+
 
 
 """Ülesanne 7
@@ -133,6 +186,11 @@ Täiendusi:
 
     Vastavalt toodud isikukoodi tutvustavale artiklile võrdle esimest kümmet numbrit ja viimast numbrit (nn. kontrollnumbrit), et teha selgeks, kas isikukood on üldse kehtiv. Kuna isikukoodi võtame kui sõnet, aga seal olevaid arve on vaja korrutada, peame tegema tüübiteisenduse: sõnena oleva arvu peame teisendama täisarvuks (funktsioon "int()").
     Koosta funktsioon, mis ise automaatselt koostab kehtivaid isikukoode. Võimatud on näiteks isikukoodid vale kontrollnumbriga, kuid ka sellised, mis viitavad olematule kuupäevale (algusega "3950230...", mis tähendaks 30. veebruari) vms. Vali kas "ohutu" tee (ette on antud piirid, mis kehtivad igal juhul) või loo sisemised sõltuvused (stiilis "kui kuu on aprill, siis maksimaalsete päevade arv on 30")."""
+
+
+
+
+
 
 
 
