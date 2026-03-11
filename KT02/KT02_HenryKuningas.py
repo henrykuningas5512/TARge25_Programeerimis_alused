@@ -1,3 +1,16 @@
+"""1.       Peab saama sisestada nime ja telefoni numbrit
+
+2.       Samal nimel võib olla ainult üks telefoni number
+
+3.       Peab saama küsida nime järgi numbrit ja numbri järgi nime
+
+a.       Kui vastet pole, siis peab võimaldama lisamist
+
+4.       Programmi sulgemine ei tohi andmeid kaotada (tuleb salvestada faili)
+
+5.       Lisa funktsioon terve raamatu kuvamiseks"""
+
+
 class PhoneBook:
     def __init__(self, filename='phonebook.txt'):
         self.filename = filename
@@ -46,12 +59,12 @@ class PhoneBook:
 if __name__ == "__main__":
     phone_book = PhoneBook()
 
-    # 1. Add a contact
+
     name = input("Enter name: ")
     phone_number = input("Enter phone number: ")
     phone_book.add_contact(name, phone_number)
 
-    # 2. Find a number by name
+
     name_to_find = input("Enter name to find number: ")
     number = phone_book.get_number_by_name(name_to_find)
     if number:
@@ -62,7 +75,7 @@ if __name__ == "__main__":
             new_number = input("Enter the new phone number: ")
             phone_book.add_contact(name_to_find, new_number)
 
-    # 3. Find a name by number
+
     number_to_find = input("Enter number to find name: ")
     name = phone_book.get_name_by_number(number_to_find)
     if name:
@@ -73,6 +86,6 @@ if __name__ == "__main__":
             new_name = input("Enter the new name: ")
             phone_book.add_contact(new_name, number_to_find)
 
-    # 4. Display all contacts
+
     print("\nAll Contacts:")
     phone_book.display_contacts()
