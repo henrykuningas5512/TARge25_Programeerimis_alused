@@ -1,56 +1,56 @@
-def hinda(meetrid: int, sugu: str) -> str:
-    if sugu == "M":
-        vaga_hea = 2800
-        nork = 2000
-    else:  # N
-        vaga_hea = 2600
-        nork = 1800
+def evaluate(distance: int, gender: str) -> str:
+    if gender == "M":
+        very_good = 2800
+        weak = 2000
+    else:
+        very_good = 2600
+        weak = 1800
 
-    if meetrid >= vaga_hea:
+    if distance >= very_good:
         return "väga hea"
 
-    elif meetrid < nork:
-        puudu = nork - meetrid
-        return f"nõrk, järgmisest hindest puudu {puudu} m"
+    elif distance < weak:
+        missing = weak - distance
+        return f"nõrk, järgmisest hindest puudu {missing} m"
 
     else:
-        puudu = vaga_hea - meetrid
-        return f"rahuldav, järgmisest hindest puudu {puudu} m"
+        missing = very_good - distance
+        return f"rahuldav, järgmisest hindest puudu {missing} m"
 
 
 def main():
-    failinimi = input("Sisestage failinimi: ")
+    filename = input("Sisestage failinimi: ")
 
-    m_summa = 0
-    n_summa = 0
-    m_kogus = 0
-    n_kogus = 0
+    male_total = 0
+    female_total = 0
+    male_count = 0
+    female_count = 0
 
-    with open(failinimi, "r") as f:
-        for line in f:
-            meetrid, sugu = line.strip().split()
-            meetrid = int(meetrid)
+    with open(filename, "r") as file:
+        for line in file:
+            distance, gender = line.strip().split()
+            distance = int(distance)
 
-            tulemus = hinda(meetrid, sugu)
-            print(f"{sugu} {meetrid} m, {tulemus}")
+            result = evaluate(distance, gender)
+            print(f"{gender} {distance} m, {result}")
 
-            # keskmise jaoks
-            if sugu == "M":
-                m_summa += meetrid
-                m_kogus += 1
+            # for averages
+            if gender == "M":
+                male_total += distance
+                male_count += 1
             else:
-                n_summa += meetrid
-                n_kogus += 1
+                female_total += distance
+                female_count += 1
 
     print("Keskmised:")
 
-    if m_kogus > 0:
-        m_keskmine = round(m_summa / m_kogus)
-        print(f"M {m_keskmine} m, {hinda(m_keskmine, 'M')}")
+    if male_count > 0:
+        male_avg = round(male_total / male_count)
+        print(f"M {male_avg} m, {evaluate(male_avg, 'M')}")
 
-    if n_kogus > 0:
-        n_keskmine = round(n_summa / n_kogus)
-        print(f"N {n_keskmine} m, {hinda(n_keskmine, 'N')}")
+    if female_count > 0:
+        female_avg = round(female_total / female_count)
+        print(f"N {female_avg} m, {evaluate(female_avg, 'N')}")
 
 
 if __name__ == "__main__":
