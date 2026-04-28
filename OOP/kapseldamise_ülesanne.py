@@ -40,10 +40,10 @@ class Student:
 
 if __name__ == '__main__':
     student1 = Student("Tiit", 1)
-    print(student1.get_status)
+    print(student1.get_status())
     student1.set_status("Lahkunud")
-    print(student1.get_status)
+    print(student1.get_status())
     student1.set_status("Finished")
-    print(student1.get_status)
+    print(student1.get_status())
     student1.set_status(Student.__STATUS_FINISHED)
-    print(student1.get_status)
+    print(student1.get_status())
