@@ -1,5 +1,6 @@
 """Shapes."""
 from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
@@ -7,14 +8,17 @@ class Shape(ABC):
 
     def __init__(self, color: str):
         """Shape constructor."""
+        self.color = color
         pass
 
     def set_color(self, color: str):
         """Set the color of the shape."""
+        self.color = color
         pass
 
     def get_color(self) -> str:
         """Get the color of the shape."""
+        return self.color
         pass
 
     @abstractmethod
@@ -35,6 +39,8 @@ class Circle(Shape):
 
         The radius value is stored here.
         """
+        super().__init__(color)
+        self.radius = radius
         pass
 
     def __repr__(self) -> str:
@@ -44,6 +50,7 @@ class Circle(Shape):
         For this exercise, this should return a string:
         Circle (r: {radius}, color: {color})
         """
+        return f"Circle (r: {self.radius}, color: {self.color})"
         pass
 
     def get_area(self) -> float:
@@ -52,6 +59,7 @@ class Circle(Shape):
 
         Area of the circle is pi * r * r.
         """
+        return math.pi * self.radius ** 2
         pass
 
 
@@ -67,6 +75,8 @@ class Square(Shape):
 
         The side value is stored here.
         """
+        super().__init__(color)
+        self.side = side
         pass
 
     def __repr__(self) -> str:
@@ -76,6 +86,7 @@ class Square(Shape):
         For this exercise, this should return a string:
         Square (a: {side}, color: {color})
         """
+        return f"Square (a: {self.side}, color: {self.color})"
         pass
 
     def get_area(self) -> float:
@@ -84,10 +95,45 @@ class Square(Shape):
 
         Area of the square is side * side.
         """
+        return self.side ** 2
         pass
 
 
-# class Rectangle(Shape):
+class Rectangle(Shape):
+    """Rectangle is a subclass of Shape."""
+
+    def __init__(self, color: str, length: float, width: float):
+        """
+        Rectangle constructor.
+
+        The color is stored using superclass constructor:
+        super().__init__(color)
+
+        The side value is stored here.
+        """
+        super().__init__(color)
+        self.length = length
+        self.width = width
+        pass
+
+    def __repr__(self) -> str:
+        """
+        Return representation of the Rectangle.
+
+        For this exercise, this should return a string:
+        Rectangle (a: {side}, color: {color})
+        """
+        return f"Rectangle (l: {self.length}, w: {self.width}, color: {self.color})"
+        pass
+
+    def get_area(self) -> float:
+        """
+        Calculate the area of the Rectangle.
+
+        Area of the Rectangle is side * side.
+        """
+        return self.length * self.width
+        pass
 
 
 class Paint:
@@ -95,30 +141,52 @@ class Paint:
 
     def __init__(self):
         """Paint constructor."""
+        self.shape_list = []
         pass
 
     def add_shape(self, shape: Shape) -> None:
         """Add a shape to the program."""
+        self.shape_list.append(shape)
         pass
 
     def get_shapes(self) -> list:
         """Return all the shapes."""
+        return self.shape_list
         pass
 
     def calculate_total_area(self) -> float:
         """Calculate total area of the shapes."""
+        total = 0
+        for shape in self.shape_list:
+            total += shape.get_area()
+        return total
         pass
 
     def get_circles(self) -> list:
         """Return only circles."""
+        circle_total = []
+        for shape in self.shape_list:
+            if isinstance(shape, Circle):
+                circle_total.append(shape)
+        return circle_total
         pass
 
     def get_squares(self) -> list:
         """Return only squares."""
+        square_total = []
+        for shape in self.shape_list:
+            if isinstance(shape, Square):
+                square_total.append(shape)
+        return square_total
         pass
 
     def get_rectangles(self) -> list:
         """Return only rectangles."""
+        rectangle_total = []
+        for shape in self.shape_list:
+            if isinstance(shape, Rectangle):
+                rectangle_total.append(shape)
+        return rectangle_total
         pass
 
 
