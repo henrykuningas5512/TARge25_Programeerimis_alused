@@ -1,4 +1,19 @@
-"""Game collection system with file saving."""
+"""Game collection system."""
+
+"""
+Kokkuvõte, mis programmis on.
+
+Projekt „My Collection” on Pythonis loodud mängude kollektsiooni hoidmis süsteem.
+Programm võimaldab mul lisada, otsida, vaadata, eemaldada ja sorteerida mänge ning salvestada andmeid tekstifaili.
+
+Projektis kasutasin OOP, klasse ja objekte, funktsioone, tingimuslauseid, tsükleid, andmestruktuure ja failidega töötamist.
+Samuti kasutasin vigade vältimiseks try-id.
+
+Programmi oodatav tulemus on, et kui tööle paned siis tuleb ette menüü kus on 1-8 valikut.
+Kus 1. lisab mängu, 2. Vaatab kõike mänge, 3. Otsib mängu, mis kirjutad, 4. eemaldab mängu,
+5. sorteerib mängud hinna järgi, 6. sorteerib mängud hinnangu järgi mängud,
+7. salvestab kõik mis on lisatud ja eemaldatud faili, 8. paneb programmi kinni.
+"""
 
 
 class Game:
@@ -139,13 +154,11 @@ class GameCollection:
             print("Faili ei leitud. Uus fail luuakse.")
 
 
-# ---------- PROGRAMM ----------
-
-collection = GameCollection("Timmu Collection", 5.0)
+collection = GameCollection("My Collection", 1.0)
 collection.load_from_file()
 
 while True:
-    print("\n--- TIMMU KOLLEKTSIOONI MENÜÜ ---")
+    print("\n--- MINU KOLLEKTSIOONI MENÜÜ ---")
     print("1. Lisa mäng")
     print("2. Vaata kõiki mänge")
     print("3. Otsi mängu")
