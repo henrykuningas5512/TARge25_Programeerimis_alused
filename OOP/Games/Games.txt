@@ -1,0 +1,3 @@
+Minecraft;Sandbox;29.99;7.5
+Straftat;Shooter;0.0;8.7
+Balatro;Roguelike;13.99;9.8
